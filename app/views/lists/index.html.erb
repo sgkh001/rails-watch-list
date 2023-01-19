@@ -10,12 +10,24 @@
 </div>
 
 <div class = "container">
-<h1> MY LIST </h1>
-<ul>
-
-<% @lists.each do |list| %>
-  <li> <%= link_to list.name, list_path(list) %> </li>
-  <%= link_to "DELETE list", list_path(list), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-<% end %>
-</ul>
+  <div class = "m-5">
+    <h1> MY WATCH LIST  </h1>
+  </div>
+  <div class="row justify-content-between">
+    <% @lists.each do |list| %>
+    <div class="col-12 col-lg-4">
+        <div class="card bg-dark text-white">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-img-overlay">
+            <div class="d-flex justify-content-center">
+              <%= link_to list.name, list_path(list)%>
+            </div>
+              <button class="btn btn-danger"><%= link_to "DELETE list", list_path(list), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></button>
+          </div>
+        </div>
+    </div>
+    <% end %>
+  </div>
 </div>
+<!--</div> -->
+<!-- comment out-->
